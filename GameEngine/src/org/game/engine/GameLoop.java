@@ -9,23 +9,21 @@ public class GameLoop extends Thread {
 
 	private final Game game;
 	private final GameCanvas canvas;
-    private boolean stopped;
 
 	public GameLoop(Game game, GameCanvas canvas) {
 		this.game = game;
 		this.canvas = canvas;
-        this.stopped = false;
 	}
-
-    public void stopGame() {
-        stopped = true;
-    }
+	
 
 	@Override
 	public void run() {
 		game.init();
 
-		while (!game.isOver() && !stopped) {
+		while (!game.isOver()) {
+			
+			game.update();
+			canvas.repaint();
 
 			try {
 				Thread.sleep(game.getDelay());

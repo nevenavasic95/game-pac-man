@@ -15,7 +15,7 @@ public abstract class Game implements KeyListener, MouseListener, MouseMotionLis
 	protected boolean over;
 	protected String title = "PacMan";
 	protected int width=400, height=300;
-	protected int delay = 30;
+	protected int speed = 20;
 
 	public void init() {}
 	abstract public void update();
@@ -26,7 +26,7 @@ public abstract class Game implements KeyListener, MouseListener, MouseMotionLis
 	public String getTitle() { return title; }
 	public int getWidth() { return width; }
 	public int getHeight() { return height; }
-	public int getDelay() { return delay; }
+	public int getDelay() { return speed; }
 	public void resize(int width, int height) {}
 
 	public void keyTyped(KeyEvent e) {
