@@ -15,7 +15,7 @@ public abstract class Game implements KeyListener, MouseListener, MouseMotionLis
 	protected boolean over;
 	protected String title = "PacMan";
 	protected int width=400, height=300;
-	protected int speed = 20;
+	protected int speed = 50;
 
 	public void init() {}
 	abstract public void update();

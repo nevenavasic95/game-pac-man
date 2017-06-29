@@ -12,12 +12,13 @@ public class Maze {
 	int width, height;
 	public Position packmanPos;
 	public Position ghostPos;
-	public ArrayList<Position> pills; 
+	public ArrayList<Position> pills,powerPills; 
 	
 	public Maze() {
 		// load the lines
 		try {
 			pills = new ArrayList<Position>();
+			powerPills = new ArrayList<Position>();
 			lines = new ArrayList<String>();
 			Scanner s = new Scanner(new File("mazes/0"));
 			int r = 0;
@@ -34,6 +35,9 @@ public class Maze {
 					if(line.charAt(i)== '2'){
 						pills.add(new Position(r,i));
 					}
+					else if (line.charAt(i)== '3'){
+						powerPills.add(new Position(r,i));
+					}
 				}
 				r++;
 			}
@@ -49,7 +53,7 @@ public class Maze {
 			e1.printStackTrace();
 		}
 	}
-//vidi za sta je
+
 	public char charAt(int r, int c) {
 		return lines.get(r).charAt(c);
 	}

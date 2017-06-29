@@ -26,7 +26,7 @@ public class PackMan extends Game {
 		title = "hbjkgh";
 		width = data.getWidth()+10;
 		height = data.getHeight()+50;
-		speed = 7;
+		speed = 10;
 	}
 	
 	@Override
@@ -62,7 +62,11 @@ public class PackMan extends Game {
 		{
 			drawer.draw(g,"pill", 0, pill.column*2, pill.row*2, true);
 		}
-		
+		//draw the power pills
+		for(Position powerPill : data.powerPills)
+		{
+			drawer.draw(g,"powerpills", 0, powerPill.column*2, powerPill.row*2, true);
+		}
 		//draw the packman
 		MoverInfo packman = data.packman;
 		drawer.draw(g, "packmans", packman.curDir, frame%3, packman.pos.column*2, packman.pos.row*2, true);
@@ -89,6 +93,12 @@ public class PackMan extends Game {
 			g.setColor(new Color(100,100,100,200));
 			g.fillRect(0,0,width, height);
 			drawer.draw(g, "over", 0, width/2, height/2-50, true);
+		}
+		// game is over
+		if(data.completed){
+			g.setColor(new Color(100,100,100,200));
+			g.fillRect(0,0,width, height);
+			g.drawString("Completed", width/2, height/2-50);
 		}
 		
 	}
