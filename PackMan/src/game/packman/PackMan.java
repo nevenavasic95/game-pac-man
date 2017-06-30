@@ -89,16 +89,16 @@ public class PackMan extends Game {
 			drawer.draw(g, "digits", c-'0', width-i*20-120, 510, false);
 		}
 		// game is over
-		if(data.dead){
+		if(data.dead && !data.completed){
 			g.setColor(new Color(100,100,100,200));
 			g.fillRect(0,0,width, height);
 			drawer.draw(g, "over", 0, width/2, height/2-50, true);
 		}
-		// game is over
-		if(data.completed){
+		// game is completed
+		if(data.dead && data.completed)
+		{
 			g.setColor(new Color(100,100,100,200));
 			g.fillRect(0,0,width, height);
-			g.drawString("Completed", width/2, height/2-50);
 		}
 		
 	}

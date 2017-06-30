@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import javax.swing.JOptionPane;
+
 
 
 public class GameData {
@@ -108,9 +110,9 @@ public class GameData {
 		}
 		//level is cleared
 		if(pills.isEmpty()&&powerPills.isEmpty()){
-			System.out.println("end");
 			completed = true;
 			dead = true;
+            JOptionPane.showMessageDialog(null, "Game successful completed!");
 		}
 		
 	}
